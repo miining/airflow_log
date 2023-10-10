@@ -12,7 +12,7 @@ with DAG(
 ) as dag:
     
     t1_orange = BashOperator(
-        task_id="t1_orage",
+        task_id="t1_orange",
         bash_command="/opt/airflow_log/plugins/select_fruit.sh ORANGE",
         #opt는 옵션을 의미함
     )
