@@ -13,13 +13,13 @@ with DAG(
     
     t1_orange = BashOperator(
         task_id="t1_orange",
-        bash_command="/opt/airflow_log/plugins/select_fruit.sh ORANGE",
+        bash_command="/opt/airflow_log/plugins/shell/select_fruit.sh ORANGE",
         #opt는 옵션을 의미함
     )
     
     t2_banana = BashOperator(
         task_id="t2_banana",
-        bash_command="/opt/airflow_log/plugins/select_fruit.sh BANANA",
+        bash_command="/opt/airflow_log/plugins/shell/select_fruit.sh BANANA",
     )
 
     t1_orange >> t2_banana
