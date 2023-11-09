@@ -7,7 +7,7 @@ with DAG(
     dag_id="dags_py_macro", 
     schedule="10 0 * * *",
     start_date=pendulum.datetime(2023, 10, 1, tz="Asia/Seoul"),
-    catchup=True,
+    catchup=False,
 ) as dag:
     
     #macro를 이용한 시간 추출
