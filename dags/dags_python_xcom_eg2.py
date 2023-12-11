@@ -19,7 +19,7 @@ with DAG(
     def xcom_pull_1(**kwargs):
         ti = kwargs['ti']
         value1 = ti.xcom_pull(task_ids='python_xcom_push_by_return')
-        print('xcom_pull 메서드로 받은 리턴값 : '+value1)
+        print('xcom_pull 메서드로 받은값 : '+value1)
 
     @task(task_id = 'python_xcom_pull_2')
     def xcom_pull_2(status, **kwargs):
