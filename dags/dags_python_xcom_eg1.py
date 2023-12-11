@@ -22,7 +22,7 @@ with DAG(
         ti.xcom_push(key="result1", value="value_2")
         ti.xcom_push(key="result2",value=[1,2,3,4])
 
-    @task(taks_id = 'python_xcom_pull_task')
+    @task(task_id = 'python_xcom_pull_task')
     def xcom_pull(**kwargs):
         ti = kwargs['ti']
         value1 = ti.xcom_pull(key="result1") 
