@@ -27,7 +27,7 @@ with DAG(
         ti = kwargs['ti']
         value1 = ti.xcom_pull(key="result1") 
         #value2값을 가져옴, key값이 같을때는 최근에 넣어준거가져옴
-        value2 = ti.xcom_pull(key="result2",task_ids= 'python_xcom_push_task1')
+        value2 = ti.xcom_pull(key="result2", task_ids= 'python_xcom_push_task1')
         print(value1)
         print(value2)
 
