@@ -20,7 +20,7 @@ with DAG(
     bash_pull = BashOperator(
         task_id = 'bash_pull',
         env = {'PUSHED_VALUE':"{{ti.xcom_pull(key='bash_pushed')}}",
-               'RETURN_VALUE':"{{ti.xcom_pull(task_ids='bash_push)}}" #bash command에서 마지막으로 출력된값이 return값임
+               'RETURN_VALUE':"{{ti.xcom_pull(task_ids='bash_push')}}" #bash command에서 마지막으로 출력된값이 return값임
             },
         bash_command="echo &PUSHED_VALUE && echo &RETURN_VALUE",
         do_xcom_push = False #Xcom에 올리지 않음
