@@ -19,7 +19,7 @@ with DAG(
         elif selected_item in ['B','C']:
             return ['task_b','task_c']
         
-    python_branch_task = PythonOperator(
+    python_branch_task = BranchPythonOperator(
             task_id = 'python_branch_task',
             python_callable=select_random
     )
@@ -46,7 +46,7 @@ with DAG(
     )
 
     python_branch_task >> [task_a,task_b,task_c]
-    
+
 
 
     
