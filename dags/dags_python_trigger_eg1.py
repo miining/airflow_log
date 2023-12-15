@@ -4,9 +4,6 @@ from airflow.exceptions import AirflowException
 from airflow.decorators import task
 
 
-
-
-
 import pendulum
 
 with DAG(
@@ -34,4 +31,4 @@ with DAG(
     def python_downstream_1():
         print('정상처리')
 
-    [bash_upstream_1,python_upstream_1().python_upstream_2()] >> python_downstream_1()
+    [bash_upstream_1,python_upstream_1(),python_upstream_2()] >> python_downstream_1()
