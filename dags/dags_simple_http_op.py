@@ -1,7 +1,6 @@
 from airflow import DAG
 import pendulum
 from airflow.decorators import task
-from airflow.operators.bash import BashOperator
 from airflow.providers.http.operators.http import SimpleHttpOperator
 
 
@@ -15,12 +14,13 @@ with DAG(
     river_parking_info = SimpleHttpOperator(
         task_id = 'river_parking_info',
         http_conn_id='openapi.seoul.go.kr',
-        endpoint='{{var.value.apikey_openapi_seoul_go_kr}}/json/TbUseMonthstatus/1/5/',
+        endpoint='{{var.value.apikey_openapi_seoul_go_kr}}/json/TbUseMonthstatus/1/5/', 
+        #airflow ui에 등록한 variable을 이용해 api 토큰을 감춤
         method='GET',
         headers={
-            'Connect-Type' : 'application/json',
-            'charset' : 'utf-8',
-            'Accept' : '*/*'
+            'Content-Type' : 'application/json',
+                'charset' : 'utf-8',
+                'Accept' : '*/*'
         }
     )
 
