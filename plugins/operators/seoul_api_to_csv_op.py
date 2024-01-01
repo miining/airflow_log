@@ -1,4 +1,3 @@
-from typing import Any
 from airflow.models.baseoperator import BaseOperator
 from airflow.hooks.base import BaseHook
 import pandas as pd
@@ -15,7 +14,8 @@ class SeoulApiToCsvOp(BaseOperator):
         self.base_dt = base_dt
 
     def execute(self, context):
-
+        import os
+        
         connection = BaseHook.get_connection(self.http_conn_id)
         self.base_url = f'http://{connection.host}:{connection.port}/{self.endpoint}'
 
@@ -32,8 +32,11 @@ class SeoulApiToCsvOp(BaseOperator):
             else:
                 start_row = end_row+1
                 end_row += 1000
+            
+        if not os.path.exists(self.path):
+            os.system(f'mkdir -p {self.path}')
+        total_row_df.to_csv(self.path + '/' + self.file_name,encoding='utf-8',index =False)
 
-        return super().execute(context)
     
     def _call_api(self,base_url,start_row,end_row):
         import requests
