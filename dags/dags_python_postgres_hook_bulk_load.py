@@ -21,6 +21,6 @@ with DAG(
                     #db에 이런 이름의 table을 만들어나야함
                     'tbl_nm':'TbParkingStatus_bulk1',
                     #csv 파일을 파일명으로 넘겨줄거임,api_parking부분 참고해서 가져옴
-                    'file_nm':'/opt/airflow_log/files/TbUseMonthstatusView/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}/TbUseMonthStatusView.csv'
+                    'file_nm':'/opt/airflow/files/TbUseMonthstatusView/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}/TbUseMonthStatusView.csv'
                    }
     )
