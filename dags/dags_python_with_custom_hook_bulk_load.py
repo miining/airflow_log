@@ -21,7 +21,8 @@ with DAG(
         op_kwargs={
             'postgres_conn_id' :'conn-db-postgres-custom',
             'tbl_nm':'TbParking_bulk2',
-            'file_nm':'/opt/airflow/files/TbUseMonthstatusView/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}'
+            'file_nm':'/opt/airflow/files/TbUseMonthstatusView/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}/TbUseMonthStatusView.csv'
         }
     )
+
 
