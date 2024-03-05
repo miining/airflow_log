@@ -6,7 +6,7 @@ import pendulum
 with DAG(
     dag_id = 'dags_seoul_api_parking',
     schedule=None,
-    start_date=pendulum.datetime(2023,1,1,tz='Asia/Seoul'),
+    start_date=pendulum.datetime(2023,3,1,tz='Asia/Seoul'),
     catchup=False
 )as dag:
     '''서울시 한강공원 월별 주차장 이용현황'''
