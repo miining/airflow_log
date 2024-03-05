@@ -13,7 +13,7 @@ with DAG(
         task_id = 'tb_use_month_status',
         dataset_nm='TbUseMonthstatusView',
         path='/opt/airflow/files/TbUseMonthstatusView/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}',
-        file_name='TbUseMonthStatusView.csv'
+        file_name='TbUseMonthstatusView.csv'
     )
 
     tb_use_month_status
