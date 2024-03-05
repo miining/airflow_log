@@ -39,7 +39,7 @@ class CustomPostgresHook(BaseHook):
 
         #window에서는 CRLF라는 텍스트 줄바꿈을 제거해줘야함
         for col in file_df.columns:
-            #string이 아닌 다른 type일 경우 오류가 발생할 수 있음
+            #string이 아닌 다른 type일때 경우 오류가 발생할 수 있음
             try:
                 file_df[col] = file_df[col].str.replace('\r\n','')
                 self.log.info(f'{table_name}.{col}:개행문자 제거')
