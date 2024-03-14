@@ -9,7 +9,7 @@ with DAG(
     schedule=None,
     catchup=False
 )as dag:
-    sensor_task_by_poke = BashOperator(
+    sensor_task_by_poke = BashSensor(
         task_id='sensor_task_by_poke',
         env={'FILE':'/opt/airflow/files/TbUseMonthstatusView/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}/TbUseMonthstatusView.csv'},
         # &&는 조건부 실행 연산자,FILE이 수행되면 뒤에 명령어를 수행해라
@@ -53,7 +53,7 @@ with DAG(
     bash_task=BashOperator(
         task_id='bash_task',
         env={'FILE':'/opt/airflow/files/TbUseMonthstatusView/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}/TbUseMonthstatusView.csv'},
-        bash_command='echo "건수:cat $FILE | wc -1 " '
+        bash_command='echo "건수:cat $FILE | wc -l " '
         
     )
 
