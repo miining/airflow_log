@@ -13,8 +13,8 @@ with DAG(
         fs_conn_id='conn_file_opt_airflowlog_files',
         filepath='TbUseMonthstatusView/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}/TbUseMonthstatusView.csv',
         recursive=False,
-        poke_interval=60,
-        timeout=60*60*24, #1일
+        poke_interval=30,
+        timeout=60*2, #1일
         mode ='reschedule'
     )
     
