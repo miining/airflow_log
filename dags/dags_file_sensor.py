@@ -10,7 +10,7 @@ with DAG(
 )as dag:
     tbUseMonthstatusView_sensor = FileSensor(
         task_id = 'tbUseMonthstatusView_sensor',
-        fs_conn_id='conn_file_opt_airflowlog_files',
+        fs_conn_id='conn_file_opt_airflow_files',
         filepath='TbUseMonthstatusView/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}/TbUseMonthstatusView.csv',
         recursive=False,
         poke_interval=30,
