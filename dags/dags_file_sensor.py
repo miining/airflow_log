@@ -14,7 +14,7 @@ with DAG(
         filepath='TbUseMonthstatusView/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}/TbUseMonthstatusView.csv',
         recursive=False,
         poke_interval=30,
-        timeout=60*2, #1일
+        timeout=60*2, #2분
         mode ='reschedule'
     )
     
