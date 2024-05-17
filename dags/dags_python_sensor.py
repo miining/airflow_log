@@ -43,7 +43,7 @@ with DAG(
         task_id = 'sensor_task',
         python_callable= check_api_update,
         op_kwargs={
-            'http_conn_id':'openapi_seoul_go.kr',
+            'http_conn_id':'openapi.seoul.go.kr',
             'endpoint':'{{var.value.apikey_openapi_seoul_go_kr}}/json/',
             'base_dt_col':'S_DT'
         },
