@@ -44,7 +44,7 @@ with DAG(
         python_callable= check_api_update,
         op_kwargs={
             'http_conn_id':'openapi.seoul.go.kr',
-            'endpoint':'{{var.value.apikey_openapi_seoul_go_kr}}/json/',
+            'endpoint':'{{var.value.apikey_openapi_seoul_go_kr}}/json/TbCorona19CountStatus',
             'base_dt_col':'S_DT'
         },
         poke_interval = 600, #10분
