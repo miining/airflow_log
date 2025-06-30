@@ -1,7 +1,6 @@
 import pendulum
-# Airflow 3.0 부터 아래 경로로 import 합니다.
-from airflow.operators.bash import BashOperator 
-from airflow import DAG
+from airflow.providers.standard.operators.bash import BashOperator
+from airflow.sdk import DAG
 
 with DAG(
     dag_id="dags_bash_operator", #dag 파일명과 dag_id는 일치시키는게 좋음
